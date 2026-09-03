@@ -5,27 +5,27 @@
 <h1 align="center">Spotilol</h1>
 
 <p align="center">
-  <a href="https://github.com/lyssadev/Spotilol/stargazers">
-    <img src="https://img.shields.io/github/stars/lyssadev/Spotilol?style=for-the-badge&logo=starship&labelColor=0d0d0d&color=1DB954" alt="stars"/>
+  <a href="https://github.com/ArmancTeam/spotiweb/stargazers">
+    <img src="https://img.shields.io/github/stars/ArmancTeam/spotiweb?style=for-the-badge&logo=starship&labelColor=0d0d0d&color=1DB954" alt="stars"/>
   </a>
   &nbsp;
-  <a href="https://github.com/lyssadev/Spotilol/releases">
-    <img src="https://img.shields.io/github/downloads/lyssadev/Spotilol/total?style=for-the-badge&logo=download&labelColor=0d0d0d&color=1DB954" alt="downloads"/>
+  <a href="https://github.com/ArmancTeam/spotiweb/releases">
+    <img src="https://img.shields.io/github/downloads/ArmancTeam/spotiweb/total?style=for-the-badge&logo=download&labelColor=0d0d0d&color=1DB954" alt="downloads"/>
   </a>
   &nbsp;
-  <a href="https://github.com/lyssadev/Spotilol/releases/latest">
-    <img src="https://img.shields.io/github/v/release/lyssadev/Spotilol?style=for-the-badge&logo=github&labelColor=0d0d0d&color=1DB954" alt="version"/>
+  <a href="https://github.com/ArmancTeam/spotiweb/releases/latest">
+    <img src="https://img.shields.io/github/v/release/ArmancTeam/spotiweb?style=for-the-badge&logo=github&labelColor=0d0d0d&color=1DB954" alt="version"/>
   </a>
   &nbsp;
-  <a href="https://github.com/lyssadev/Spotilol/forks">
-    <img src="https://img.shields.io/github/forks/lyssadev/Spotilol?style=for-the-badge&logo=git&labelColor=0d0d0d&color=1DB954" alt="forks"/>
+  <a href="https://github.com/ArmancTeam/spotiweb/forks">
+    <img src="https://img.shields.io/github/forks/ArmancTeam/spotiweb?style=for-the-badge&logo=git&labelColor=0d0d0d&color=1DB954" alt="forks"/>
   </a>
   &nbsp;
-  <a href="https://github.com/lyssadev/Spotilol/commits/main">
-    <img src="https://img.shields.io/github/last-commit/lyssadev/Spotilol?style=for-the-badge&logo=git&labelColor=0d0d0d&color=1DB954" alt="last commit"/>
+  <a href="https://github.com/ArmancTeam/spotiweb/commits/main">
+    <img src="https://img.shields.io/github/last-commit/ArmancTeam/spotiweb?style=for-the-badge&logo=git&labelColor=0d0d0d&color=1DB954" alt="last commit"/>
   </a>
   &nbsp;
-  <a href="https://deepwiki.com/lyssadev/Spotilol">
+  <a href="https://deepwiki.com/ArmancTeam/spotiweb">
     <img src="https://deepwiki.com/badge.svg" alt="DeepWiki" style="height: 28px;"/>
   </a>
 </p>
@@ -43,7 +43,7 @@
 </p>
 
 <p align="center">
-  📖 documented at <a href="https://deepwiki.com/lyssadev/Spotilol">deepwiki.com/lyssadev/Spotilol</a>
+  📖 documented at <a href="https://deepwiki.com/ArmancTeam/spotiweb">deepwiki.com/ArmancTeam/spotiweb</a>
 </p>
 
 ---
@@ -60,7 +60,7 @@
 
 ## Download
 
-grab the latest APK from the [releases page](https://github.com/lyssadev/spotilol/releases/latest).
+grab the latest APK from the [releases page](https://github.com/ArmancTeam/spotiweb/releases/latest).
 
 download the `.apk` file and install it on your device. you may need to toggle **"Install from unknown sources"** in your Settings.
 
@@ -115,7 +115,7 @@ Spotilol generates a local CA cert so Spotify doesn't know you're in a WebView. 
 ## Build It Yourself
 
 ```bash
-git clone https://github.com/lyssadev/Spotilol
+git clone https://github.com/ArmancTeam/spotiweb
 cd Spotilol
 ./gradlew assembleDebug
 ```
@@ -142,4 +142,4 @@ contributions are welcome. open issues, throw PRs, suggest stuff — free for al
 
 Spotilol exists because deviato did the reverse-engineering work on Spotifuck. this ports the core logic from smali to Kotlin with extra features and maintenance.
 
-**Open-sourced by lyssadev <3 deviato**
+**Open-sourced by ArmancTeam <3 deviato**
