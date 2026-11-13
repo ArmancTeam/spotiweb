@@ -200,12 +200,21 @@ class MainActivity : ComponentActivity() {
         requestBluetoothPermission()
         val uc = UpdateChecker(this)
         uc.autoCheck { url ->
-            Toast.makeText(this, "A new update is available", Toast.LENGTH_SHORT).show()
-            Handler(Looper.getMainLooper()).postDelayed({
-                try {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-                } catch (_: Exception) {}
-            }, 2000)
+            showUpdateNotification(url)
+
+            android.app.AlertDialog.Builder(this)
+                .setTitle("Spotilol güncellemesi")
+                .setMessage("Yeni bir sürüm mevcut. Güncelleme sayfasını açmak ister misin?")
+                .setPositiveButton("Şimdi güncelle") { _, _ ->
+                    try {
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                    } catch (_: Exception) {
+                        Toast.makeText(this, "Bağlantı açılamadı", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .setNegativeButton("Daha sonra", null)
+                .setCancelable(true)
+                .show()
         }
 
         val loggedIn = prefs.getBoolean("LoggedIn", false)
@@ -1264,6 +1273,52 @@ class MainActivity : ComponentActivity() {
                     view.loadUrl("https://accounts.spotify.com/login")
                 }
             }
+        }
+    }
+
+
+    private fun showUpdateNotification(url: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+
+        val channelId = "spotilol_updates"
+        val manager = getSystemService(android.app.NotificationManager::class.java)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = android.app.NotificationChannel(
+                channelId,
+                "Uygulama güncellemeleri",
+                android.app.NotificationManager.IMPORTANCE_DEFAULT
+            ).apply {
+                description = "Spotilol yeni sürüm bildirimleri"
+            }
+            manager.createNotificationChannel(channel)
+        }
+
+        val openIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            2001,
+            openIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = androidx.core.app.NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(com.project.lol.R.mipmap.ic_launcher)
+            .setContentTitle("Spotilol güncellemesi mevcut")
+            .setContentText("Yeni sürümü görmek için dokun.")
+            .setPriority(androidx.core.app.NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .build()
+
+        try {
+            manager.notify(2002, notification)
+        } catch (_: SecurityException) {
+            // Bildirim izni yoksa uygulama içi pencere çalışmaya devam eder.
         }
     }
 

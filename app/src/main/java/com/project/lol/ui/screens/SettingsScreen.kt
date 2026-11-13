@@ -619,10 +619,10 @@ fun SettingsContent(
         ) {
             SettingTile(
                 title = "GitHub Repository",
-                subtitle = "github.com/lyssadev/Spotilol",
+                subtitle = "github.com/ArmancTeam/spotiweb",
                 painter = painterResource(id = R.drawable.ic_github),
                 onClick = {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/lyssadev/Spotilol"))
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/ArmancTeam/spotiweb"))
                     context.startActivity(intent)
                 }
             )
@@ -1033,7 +1033,7 @@ private fun ChangelogDialog(onDismiss: () -> Unit) {
     fun fetch() {
         loading = true
         failed = false
-        GitHubApi.fetchLatestRelease("lyssadev", "Spotilol") { r ->
+        GitHubApi.fetchLatestRelease("ArmancTeam", "spotiweb") { r ->
             loading = false
             if (r == null || r.body.isBlank()) {
                 failed = true
